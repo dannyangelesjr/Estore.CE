@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ConnectionStrings>
+    <Add Name="SqlCeConnection" ConnectionString="Data Source=applicationFolder/EStore.sdf;" />
+  </ConnectionStrings>
+</Configuration>
