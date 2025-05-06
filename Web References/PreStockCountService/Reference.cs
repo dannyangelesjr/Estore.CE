@@ -29,7 +29,7 @@ namespace Estore.Ce.PreStockCountService {
         
         /// <remarks/>
         public IPreStockCountService() {
-            this.Url = "http://192.168.89.1:8081/PreStockCountService.asmx";
+            this.Url = "http://192.168.1.112:8099/PreStockCountService.asmx";
         }
         
         /// <remarks/>

@@ -28,7 +28,7 @@ namespace Estore.Ce.ProductService {
         
         /// <remarks/>
         public IProductService() {
-            this.Url = "http://192.168.89.1:8081/ProductService.asmx";
+            this.Url = "http://192.168.1.112:8099/ProductService.asmx";
         }
         
         /// <remarks/>

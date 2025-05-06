@@ -15,7 +15,6 @@ C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.UI.MainForm.reso
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.UI.ProductSearchForm.resources
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.UI.SynchronizeForm.resources
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.Resource.resources
-C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.csproj.GenerateResource.Cache
+C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\EstoreCe.csproj.GenerateResource.Cache
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.exe
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.pdb
-C:\Projects\Supermarket\Estore.Ce\Estore.Ce\bin\Debug\EStore.sdf

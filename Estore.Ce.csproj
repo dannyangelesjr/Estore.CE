@@ -13,7 +13,7 @@
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <OSVersion>5.0</OSVersion>
-    <DeployDirSuffix>Estore.Ce</DeployDirSuffix>
+    <DeployDirSuffix>EstoreCe</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
@@ -98,6 +98,12 @@
     <Compile Include="Helpers\ConfigurationHelper.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="UI\RestockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RestockForm.Designer.cs">
+      <DependentUpon>RestockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\StockCountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\RestockForm.resx">
+      <DependentUpon>RestockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\StockCountForm.resx">
       <DependentUpon>StockCountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,10 +176,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.89.1:8081/LocationService.asmx">
+    <WebReferenceUrl Include="http://192.168.1.112:8099/LocationService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\LocationService\</RelPath>
-      <UpdateFromURL>http://192.168.89.1:8081/LocationService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.112:8099/LocationService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -180,10 +189,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.89.1:8081/ProductService.asmx">
+    <WebReferenceUrl Include="http://192.168.1.112:8099/ProductService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\ProductService\</RelPath>
-      <UpdateFromURL>http://192.168.89.1:8081/ProductService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.112:8099/ProductService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -193,10 +202,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.89.1:8081/PreStockCountService.asmx">
+    <WebReferenceUrl Include="http://192.168.1.112:8099/PreStockCountService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockCountService\</RelPath>
-      <UpdateFromURL>http://192.168.89.1:8081/PreStockCountService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.112:8099/PreStockCountService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
