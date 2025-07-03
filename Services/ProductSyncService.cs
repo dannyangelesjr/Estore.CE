@@ -1,121 +1,76 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using Estore.Ce.ProductService;
-using Estore.Ce.Repositories;
-using Estore.Ce.Profiles;
 using Estore.Ce.Models;
-using System.Windows.Forms;
 using Estore.Ce.Helpers;
+using Estore.Ce.Contracts;
+using Estore.Ce.Contracts.Services;
 
 namespace Estore.Ce.Services
 {
-    public interface IProductSyncService
-    {
-        event Action<string> StatusUpdatedProductSyncService;
-        event Action<int, int> RecordUpdatedProductSyncService;
-        
-        void SyncProducts();
-    }
-
-    public class ProductSyncService : IProductSyncService
+    public class ProductSyncService : BaseSyncService, IProductSyncService
     {
         private readonly IProductRepository _repository;
-
-        public event Action<string> StatusUpdatedProductSyncService;
-        public event Action<int, int> RecordUpdatedProductSyncService;
-
+        
         public ProductSyncService(IProductRepository repository)
         {
             _repository = repository;
 
             // Subscribe to the StatusUpdated event
-            _repository.StatusUpdatedProductRepository += OnStatusUpdated;
-            _repository.RecordUpdatedProductRepository += OnRecordUpdated;
+            _repository.StatusUpdated += UpdateStatus;
+            _repository.RecordUpdated += UpdateProgressBar;
         }
 
-        public void SyncProducts()
+        public override void Sync()
         {
-            IProductService productService = new IProductService();
-            productService.Timeout = 100000;
-
-            ProductProfile productProfile = new ProductProfile();
+            IProductSoapService service = new IProductSoapService();
+            service.Timeout = 100000;
 
             _repository.DeleteAll();
             DatabaseHelper.ResetIdentity("Product", "Id");
 
-            List<ProductGetAllDto> productsDto = new List<ProductGetAllDto>();
-            List<Product> products = new List<Product>();
-
             int pageNumber = 1;
             int pageSize = 1000;
-            int recordCount = productService.RecordCount(true); // get only the active products with barcode
+            int recordCount = service.GetRecordCount(true); // get only the active products with barcode
             int count = 0;
             try
             {
                 while (true)
                 {
-                    var result = productService.ProductsPaged(true,pageNumber, pageSize);
-                    //var result = productService.Products(); 
-                    if (result != null)
+                    IEnumerable<ProductDto> dtoList = service.GetPaged(true, pageNumber, pageSize);
+                    if (dtoList.Count() == 0)
                     {
-                        productsDto = result.ToList();
-                    }
-                    else
-                    {
-                        break; 
+                        break;
                     }
 
-                    products.Clear();
-                    Product product = new Product();
+                    List<Product> entities = new List<Product>();
+                    Product entity = new Product();
 
-                    try
+                    foreach (var dto in dtoList)
                     {
-                        foreach (var productDto in productsDto)
-                        {
-                            count++;
-                            product = productProfile.Map(productDto);
-                            products.Add(product);
-                        }
+                        count++;
+                        UpdateStatus("Syncing products (" + (count + "/" + recordCount + ")"));
 
-                        _repository.InsertAll(products);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
+                        entity = ObjectMapper.MapTo<ProductDto,Product>(dto);
+                        entities.Add(entity);
                     }
 
-                    products = new List<Product>();
+                    
+                    UpdateStatus("Storing in local db (" + count + "/" + recordCount + ")");                    
+                    UpdateProgressBar(recordCount, count);
+                    
+                    _repository.InsertAll(entities);
+
+                    entities = null;
 
                     pageNumber++;
-
-                    OnStatusUpdated("Syncing products (" + count + "/" + recordCount + ")");
-                    OnRecordUpdated(recordCount, count);
-                }                
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
-        }
-
-        private void OnStatusUpdated(string message)
-        {
-            if (StatusUpdatedProductSyncService != null)
-            {
-                StatusUpdatedProductSyncService(message);
-                Application.DoEvents();
-            }
-        }
-
-        private void OnRecordUpdated(int recordsFound, int recordsUpdated)
-        {
-            if (RecordUpdatedProductSyncService != null)
-            {
-                RecordUpdatedProductSyncService(recordsFound, recordsUpdated);
-                Application.DoEvents();
-            }            
-        }
+        }        
     }
 }

@@ -9,12 +9,12 @@ namespace Estore.Ce.Models
     {
         public int Id { get; set; }
         public string Barcode { get; set; }
-        public string DeviceId { get; set; }
-        public int LocationId { get; set; }        
+        public string DeviceId { get; set; }        
+        public int LineNumber { get; set; }
+        public string PackingUnit { get; set; }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public int Quantity { get; set; }
-        public string PackingUnit { get; set; }
-        public DateTime ScanDate { get; set; }
+        public int Quantity { get; set; }        
+        public DateTime? ScanDate { get; set; }
     }
 }

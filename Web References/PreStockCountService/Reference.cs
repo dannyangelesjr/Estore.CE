@@ -23,33 +23,33 @@ namespace Estore.Ce.PreStockCountService {
     /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IPreStockCountService_soap", Namespace="http://tempuri.org/")]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseTransactionDto))]
-    public partial class IPreStockCountService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IPreStockCountSoapService_soap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasePreTransactionCreateDto))]
+    public partial class IPreStockCountSoapService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         /// <remarks/>
-        public IPreStockCountService() {
-            this.Url = "http://192.168.1.112:8099/PreStockCountService.asmx";
+        public IPreStockCountSoapService() {
+            this.Url = "http://192.168.254.171:8081/PreStockCountService.asmx";
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPreStockCountService/Post", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public CreatePreStockCountCommandResponse Post([System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)] CreatePreStockCountCommandDto[] preStockCountsDto) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPreStockCountSoapService/Post", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ApiResponse Post([System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)] PreStockCountDto[] preStockCountsDto) {
             object[] results = this.Invoke("Post", new object[] {
                         preStockCountsDto});
-            return ((CreatePreStockCountCommandResponse)(results[0]));
+            return ((ApiResponse)(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginPost(CreatePreStockCountCommandDto[] preStockCountsDto, System.AsyncCallback callback, object asyncState) {
+        public System.IAsyncResult BeginPost(PreStockCountDto[] preStockCountsDto, System.AsyncCallback callback, object asyncState) {
             return this.BeginInvoke("Post", new object[] {
                         preStockCountsDto}, callback, asyncState);
         }
         
         /// <remarks/>
-        public CreatePreStockCountCommandResponse EndPost(System.IAsyncResult asyncResult) {
+        public ApiResponse EndPost(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((CreatePreStockCountCommandResponse)(results[0]));
+            return ((ApiResponse)(results[0]));
         }
     }
     
@@ -57,15 +57,51 @@ namespace Estore.Ce.PreStockCountService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CreatePreStockCountCommandDto : BaseTransactionDto {
+    public partial class PreStockCountDto : BasePreTransactionCreateDto {
+        
+        private int locationIdField;
+        
+        /// <remarks/>
+        public int LocationId {
+            get {
+                return this.locationIdField;
+            }
+            set {
+                this.locationIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreStockCountDto))]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BasePreTransactionCreateDto {
+        
+        private bool isForPostingField;
         
         private string barcodeField;
         
         private string deviceIdField;
         
-        private int locationIdField;
+        private int productIdField;
         
-        private System.DateTime scanDateField;
+        private string productNameField;
+        
+        private int quantityField;
+        
+        private System.Nullable<System.DateTime> scanDateField;
+        
+        /// <remarks/>
+        public bool IsForPosting {
+            get {
+                return this.isForPostingField;
+            }
+            set {
+                this.isForPostingField = value;
+            }
+        }
         
         /// <remarks/>
         public string Barcode {
@@ -88,80 +124,22 @@ namespace Estore.Ce.PreStockCountService {
         }
         
         /// <remarks/>
-        public int LocationId {
-            get {
-                return this.locationIdField;
-            }
-            set {
-                this.locationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime ScanDate {
-            get {
-                return this.scanDateField;
-            }
-            set {
-                this.scanDateField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreatePreStockCountCommandDto))]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BaseTransactionDto {
-        
-        private int lineNumberField;
-        
-        private int packingSizeField;
-        
-        private int packingUnitIdField;
-        
-        private int productIdField;
-        
-        private int quantityField;
-        
-        /// <remarks/>
-        public int LineNumber {
-            get {
-                return this.lineNumberField;
-            }
-            set {
-                this.lineNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackingSize {
-            get {
-                return this.packingSizeField;
-            }
-            set {
-                this.packingSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackingUnitId {
-            get {
-                return this.packingUnitIdField;
-            }
-            set {
-                this.packingUnitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
         public int ProductId {
             get {
                 return this.productIdField;
             }
             set {
                 this.productIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProductName {
+            get {
+                return this.productNameField;
+            }
+            set {
+                this.productNameField = value;
             }
         }
         
@@ -174,25 +152,36 @@ namespace Estore.Ce.PreStockCountService {
                 this.quantityField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> ScanDate {
+            get {
+                return this.scanDateField;
+            }
+            set {
+                this.scanDateField = value;
+            }
+        }
     }
     
     /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CreatePreStockCountCommandResponse {
+    public partial class ApiResponse {
         
-        private bool successField;
+        private bool isSuccessField;
         
         private string messageField;
         
         /// <remarks/>
-        public bool Success {
+        public bool IsSuccess {
             get {
-                return this.successField;
+                return this.isSuccessField;
             }
             set {
-                this.successField = value;
+                this.isSuccessField = value;
             }
         }
         

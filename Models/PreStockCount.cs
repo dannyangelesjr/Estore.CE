@@ -6,6 +6,7 @@ using System.Text;
 namespace Estore.Ce.Models
 {
     public class PreStockCount : BasePreTransactionEntity
-    {
+    {        
+        public int LocationId { get; set; }        
     }
 }

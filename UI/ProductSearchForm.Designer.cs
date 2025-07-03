@@ -148,9 +148,7 @@
             // 
             // btnScan
             // 
-            this.btnScan.BackColor = System.Drawing.Color.ForestGreen;
             this.btnScan.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.btnScan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnScan.Location = new System.Drawing.Point(7, 221);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(304, 37);

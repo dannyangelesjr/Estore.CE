@@ -23,21 +23,21 @@ namespace Estore.Ce.LocationService {
     /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_ILocationService_soap", Namespace="http://tempuri.org/")]
-    public partial class ILocationService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_ILocationSoapService_soap", Namespace="http://tempuri.org/")]
+    public partial class ILocationSoapService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         /// <remarks/>
-        public ILocationService() {
-            this.Url = "http://192.168.1.112:8099/LocationService.asmx";
+        public ILocationSoapService() {
+            this.Url = "http://192.168.254.171:8081/LocationService.asmx";
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ILocationService/Locations", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ILocationSoapService/Locations", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public LocationGetAllDto[] Locations(bool isActive) {
+        public LocationDto[] Locations(bool isActive) {
             object[] results = this.Invoke("Locations", new object[] {
                         isActive});
-            return ((LocationGetAllDto[])(results[0]));
+            return ((LocationDto[])(results[0]));
         }
         
         /// <remarks/>
@@ -47,9 +47,9 @@ namespace Estore.Ce.LocationService {
         }
         
         /// <remarks/>
-        public LocationGetAllDto[] EndLocations(System.IAsyncResult asyncResult) {
+        public LocationDto[] EndLocations(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((LocationGetAllDto[])(results[0]));
+            return ((LocationDto[])(results[0]));
         }
     }
     
@@ -57,9 +57,17 @@ namespace Estore.Ce.LocationService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class LocationGetAllDto {
+    public partial class LocationDto {
         
         private int locationIdField;
+        
+        private bool isActiveField;
+        
+        private bool isBadOrderField;
+        
+        private bool isSellingAreaField;
+        
+        private bool isWarehouseField;
         
         private string locationNameField;
         
@@ -70,6 +78,46 @@ namespace Estore.Ce.LocationService {
             }
             set {
                 this.locationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsActive {
+            get {
+                return this.isActiveField;
+            }
+            set {
+                this.isActiveField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsBadOrder {
+            get {
+                return this.isBadOrderField;
+            }
+            set {
+                this.isBadOrderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsSellingArea {
+            get {
+                return this.isSellingAreaField;
+            }
+            set {
+                this.isSellingAreaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsWarehouse {
+            get {
+                return this.isWarehouseField;
+            }
+            set {
+                this.isWarehouseField = value;
             }
         }
         

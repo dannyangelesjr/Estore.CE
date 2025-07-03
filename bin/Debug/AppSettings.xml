@@ -3,4 +3,7 @@
   <ConnectionStrings>
     <Add Name="SqlCeConnection" ConnectionString="Data Source=applicationFolder/EStore.sdf;" />
   </ConnectionStrings>
+  <Endpoints>
+    <Add Name="SoapEndpoint" Endpoint="http://192.168.254.171:8081/LocationService.asmx" />
+  </Endpoints>
 </Configuration>

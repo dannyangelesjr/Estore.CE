@@ -23,6 +23,21 @@ namespace Estore.Ce.Helpers
             throw new Exception("Connection string '" + name + "' not found.");
         }
 
+        public static string GetSoapEndpoint()
+        {
+            string applicationFolder = GetApplicationFolder();
+            XmlDocument config = new XmlDocument();
+            config.Load(applicationFolder + @"\AppSettings.xml");
+
+            XmlNode node = config.SelectSingleNode("/Configuration/Endpoints/Add[@Name='SoapEndpoint']");
+            if (node != null && node.Attributes["Endpoint"] != null)
+            {
+                return node.Attributes["Endpoint"].Value;
+            }
+
+            throw new Exception("Soap endpoint not found.");
+        }
+
         private static string GetApplicationFolder()
         {
             // Get the path to the currently executing assembly

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Estore.Ce.Repositories;
-using Estore.Ce.Models;
+using Estore.Ce.Infrastructure.Repositories;
+using Estore.Ce.Contracts;
+using Estore.Ce.Contracts.Services;
 
 namespace Estore.Ce.Services
 {
@@ -31,9 +29,9 @@ namespace Estore.Ce.Services
             InitializeService();
 
             // Subscribe to the RecordUpdated events
-            _locationSyncService.RecordUpdatedLocationSyncService += OnRecordUpdated;
-            _productSyncService.RecordUpdatedProductSyncService += OnRecordUpdated;
-            _productSyncService.StatusUpdatedProductSyncService += OnStatusUpdated;
+            _locationSyncService.RecordUpdated += OnRecordUpdated;
+            _productSyncService.RecordUpdated += OnRecordUpdated;
+            _productSyncService.StatusUpdated += OnStatusUpdated;
         }
 
         private void InitializeService()
@@ -47,11 +45,11 @@ namespace Estore.Ce.Services
         public void SyncAll()
         {
             OnStatusUpdated("Syncing locations...");
-            _locationSyncService.SyncLocations();
+            _locationSyncService.Sync();
             OnStatusUpdated("Location sync completed.");
 
             OnStatusUpdated("Syncing products...");
-            _productSyncService.SyncProducts();
+            _productSyncService.Sync();
             OnStatusUpdated("Product sync completed.");
         }
 

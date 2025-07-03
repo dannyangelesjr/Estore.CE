@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Estore.Ce.Models
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
         public DateTime LastModifiedDate { get; set; }

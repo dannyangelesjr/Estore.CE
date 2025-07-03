@@ -33,22 +33,21 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.statusBar1 = new System.Windows.Forms.StatusBar();
             this.mainMenu = new System.Windows.Forms.MainMenu();
-            this.menuSync = new System.Windows.Forms.MenuItem();
-            this.menuExit = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuProducts = new System.Windows.Forms.MenuItem();
+            this.menuDeliveries = new System.Windows.Forms.MenuItem();
+            this.menuDamaged = new System.Windows.Forms.MenuItem();
             this.menuCount = new System.Windows.Forms.MenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuRestock = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuProducts = new System.Windows.Forms.MenuItem();
+            this.menuLocations = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
+            this.menuSync = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.menuExit = new System.Windows.Forms.MenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,76 +66,59 @@
             this.mainMenu.MenuItems.Add(this.menuItem9);
             this.mainMenu.MenuItems.Add(this.menuExit);
             // 
-            // menuSync
-            // 
-            this.menuSync.Text = "Sync Tables";
-            this.menuSync.Click += new System.EventHandler(this.menuSync_Click);
-            // 
-            // menuExit
-            // 
-            this.menuExit.Text = "Exit";
-            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
-            // 
             // menuItem1
             // 
-            this.menuItem1.MenuItems.Add(this.menuItem2);
-            this.menuItem1.MenuItems.Add(this.menuItem5);
+            this.menuItem1.MenuItems.Add(this.menuDeliveries);
+            this.menuItem1.MenuItems.Add(this.menuDamaged);
             this.menuItem1.MenuItems.Add(this.menuCount);
-            this.menuItem1.MenuItems.Add(this.menuItem6);
-            this.menuItem1.MenuItems.Add(this.menuItem7);
+            this.menuItem1.MenuItems.Add(this.menuRestock);
             this.menuItem1.Text = "Inventory";
             // 
-            // menuProducts
+            // menuDeliveries
             // 
-            this.menuProducts.Text = "Products";
-            this.menuProducts.Click += new System.EventHandler(this.menuProducts_Click);
+            this.menuDeliveries.Text = "Incoming Deliveries";
+            this.menuDeliveries.Click += new System.EventHandler(this.menuDeliveries_Click);
+            // 
+            // menuDamaged
+            // 
+            this.menuDamaged.Text = "Damaged Items";
+            this.menuDamaged.Click += new System.EventHandler(this.menuDamaged_Click);
             // 
             // menuCount
             // 
             this.menuCount.Text = "Physical Count";
             this.menuCount.Click += new System.EventHandler(this.menuCount_Click);
             // 
-            // pictureBox1
+            // menuRestock
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(318, 245);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menuRestock.Text = "Restock Selling Area";
+            this.menuRestock.Click += new System.EventHandler(this.menuRestock_Click);
             // 
             // menuItem3
             // 
             this.menuItem3.MenuItems.Add(this.menuProducts);
-            this.menuItem3.MenuItems.Add(this.menuItem8);
+            this.menuItem3.MenuItems.Add(this.menuLocations);
             this.menuItem3.Text = "Search";
+            // 
+            // menuProducts
+            // 
+            this.menuProducts.Text = "Products";
+            this.menuProducts.Click += new System.EventHandler(this.menuProducts_Click);
+            // 
+            // menuLocations
+            // 
+            this.menuLocations.Text = "Locations";
+            this.menuLocations.Click += new System.EventHandler(this.menuLocations_Click);
             // 
             // menuItem4
             // 
             this.menuItem4.MenuItems.Add(this.menuSync);
             this.menuItem4.Text = "Tools";
             // 
-            // menuItem2
+            // menuSync
             // 
-            this.menuItem2.Text = "Incoming Deliveries";
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "Damaged Items";
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Text = "Issuance of Stocks";
-            // 
-            // menuItem7
-            // 
-            this.menuItem7.Text = "Restock Selling Area";
-            // 
-            // menuItem8
-            // 
-            this.menuItem8.Text = "Locations";
+            this.menuSync.Text = "Sync Tables";
+            this.menuSync.Click += new System.EventHandler(this.menuSync_Click);
             // 
             // menuItem9
             // 
@@ -151,6 +133,22 @@
             // menuItem11
             // 
             this.menuItem11.Text = "Help";
+            // 
+            // menuExit
+            // 
+            this.menuExit.Text = "Exit";
+            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(318, 245);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // MainForm
             // 
@@ -183,11 +181,10 @@
         private System.Windows.Forms.MenuItem menuSync;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.MenuItem menuDeliveries;
+        private System.Windows.Forms.MenuItem menuDamaged;
+        private System.Windows.Forms.MenuItem menuRestock;
+        private System.Windows.Forms.MenuItem menuLocations;
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem11;

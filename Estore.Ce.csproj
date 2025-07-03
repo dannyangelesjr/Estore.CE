@@ -64,9 +64,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\BaseTransactionEntity.cs" />
+    <Compile Include="Contracts\Repositories\IPreStockDamageRepository.cs" />
+    <Compile Include="Contracts\Repositories\IPreStockReplenishmentRepository.cs" />
+    <Compile Include="Contracts\Repositories\IBasePreTransactionRepository.cs" />
+    <Compile Include="Contracts\Services\IPreStockDamageSyncService.cs" />
+    <Compile Include="Contracts\Services\IPreStockCountSyncService.cs" />
+    <Compile Include="Contracts\Services\IBaseSyncService.cs" />
+    <Compile Include="Contracts\Repositories\ILocationRepository.cs" />
+    <Compile Include="Contracts\Services\ILocationSyncService.cs" />
+    <Compile Include="Contracts\Repositories\IPreStockCountRepository.cs" />
+    <Compile Include="Contracts\Repositories\IPreStockReceiptRepository.cs" />
+    <Compile Include="Contracts\Services\IPreStockReceiptSyncService.cs" />
+    <Compile Include="Contracts\Repositories\IProductRepository.cs" />
+    <Compile Include="Contracts\Services\IProductSyncService.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\ObjectMapper.cs" />
+    <Compile Include="Infrastructure\Repositories\Base\BaseRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\PreStockDamageRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\PreStockReplenishmentRepository.cs" />
     <Compile Include="Models\BasePreTransactionEntity.cs" />
     <Compile Include="Models\PreStockCount.cs" />
+    <Compile Include="Models\PreStockDamage.cs" />
+    <Compile Include="Models\PreStockReceipt.cs" />
+    <Compile Include="Models\PreStockReceiptAggregate.cs" />
+    <Compile Include="Models\PreStockReplenishment.cs" />
+    <Compile Include="Infrastructure\Repositories\PreStockReceiptRepository.cs" />
+    <Compile Include="Services\BaseSyncService.cs" />
+    <Compile Include="Services\PreStockReceiptSyncService.cs" />
+    <Compile Include="UI\LocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LocationForm.Designer.cs">
+      <DependentUpon>LocationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PreStockDamageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PreStockDamageForm.Designer.cs">
+      <DependentUpon>PreStockDamageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ProductSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,12 +113,9 @@
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />
     <Compile Include="Helpers\Logger.cs" />
-    <Compile Include="Profiles\LocationProfile.cs" />
-    <Compile Include="Profiles\ProductProfile.cs" />
-    <Compile Include="Repositories\Base\BaseRepository.cs" />
-    <Compile Include="Repositories\Base\BaseTransactionRepository.cs" />
-    <Compile Include="Repositories\Base\BasePreTransactionRepository.cs" />
-    <Compile Include="Repositories\StockCountRepository.cs" />
+    <Compile Include="Contracts\Repositories\IBaseRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Base\BasePreTransactionRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\PreStockCountRepository.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,21 +127,20 @@
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Helpers\ConfigurationHelper.cs" />
-    <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="Repositories\LocationRepository.cs" />
-    <Compile Include="UI\RestockForm.cs">
+    <Compile Include="Infrastructure\Repositories\ProductRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\LocationRepository.cs" />
+    <Compile Include="UI\PreStockReplenishmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RestockForm.Designer.cs">
-      <DependentUpon>RestockForm.cs</DependentUpon>
+    <Compile Include="UI\PreStockReplenishmentForm.Designer.cs">
+      <DependentUpon>PreStockReplenishmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\StockCountForm.cs">
+    <Compile Include="UI\PreStockCountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\StockCountForm.Designer.cs">
-      <DependentUpon>StockCountForm.cs</DependentUpon>
+    <Compile Include="UI\PreStockCountForm.Designer.cs">
+      <DependentUpon>PreStockCountForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
@@ -118,6 +150,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\PreStockReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PreStockReceiptForm.designer.cs">
+      <DependentUpon>PreStockReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PreStockReceiptListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PreStockReceiptListForm.designer.cs">
+      <DependentUpon>PreStockReceiptListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SynchronizeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,16 +178,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\PreStockDamageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PreStockReceiptService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PreStockReplenishmentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\ProductService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\RestockForm.resx">
-      <DependentUpon>RestockForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\LocationForm.resx">
+      <DependentUpon>LocationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\StockCountForm.resx">
-      <DependentUpon>StockCountForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PreStockDamageForm.resx">
+      <DependentUpon>PreStockDamageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreStockReplenishmentForm.resx">
+      <DependentUpon>PreStockReplenishmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreStockCountForm.resx">
+      <DependentUpon>PreStockCountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -151,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProductSearchForm.resx">
       <DependentUpon>ProductSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreStockReceiptForm.resx">
+      <DependentUpon>PreStockReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreStockReceiptListForm.resx">
+      <DependentUpon>PreStockReceiptListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SynchronizeForm.resx">
       <DependentUpon>SynchronizeForm.cs</DependentUpon>
@@ -176,10 +247,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.112:8099/LocationService.asmx">
+    <WebReferenceUrl Include="http://192.168.254.171:8081/LocationService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\LocationService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8099/LocationService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.254.171:8081/LocationService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -189,10 +260,49 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8099/ProductService.asmx">
+    <WebReferenceUrl Include="http://192.168.254.171:8081/PreStockDamageService.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\PreStockDamageService\</RelPath>
+      <UpdateFromURL>http://192.168.254.171:8081/PreStockDamageService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.254.171:8081/PreStockReceiptService.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\PreStockReceiptService\</RelPath>
+      <UpdateFromURL>http://192.168.254.171:8081/PreStockReceiptService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.254.171:8081/PreStockReplenishmentService.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\PreStockReplenishmentService\</RelPath>
+      <UpdateFromURL>http://192.168.254.171:8081/PreStockReplenishmentService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.254.171:8081/ProductService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\ProductService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8099/ProductService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.254.171:8081/ProductService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -202,10 +312,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8099/PreStockCountService.asmx">
+    <WebReferenceUrl Include="http://192.168.254.171:8081/PreStockCountService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockCountService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8099/PreStockCountService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.254.171:8081/PreStockCountService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -217,20 +327,50 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\LocationService\ILocationService.wsdl" />
-    <None Include="Web References\LocationService\LocationGetAllDto.datasource">
+    <None Include="Web References\LocationService\ILocationSoapService.wsdl" />
+    <None Include="Web References\LocationService\LocationDto.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\LocationService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\PreStockCountService\CreatePreStockCountCommandResponse.datasource">
+    <None Include="Web References\PreStockCountService\ApiResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\PreStockCountService\IPreStockCountService.wsdl" />
-    <None Include="Web References\ProductService\IProductService.wsdl" />
-    <None Include="Web References\ProductService\ProductGetAllDto.datasource">
+    <None Include="Web References\PreStockCountService\ApiResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PreStockCountService\IPreStockCountSoapService.wsdl" />
+    <None Include="Web References\PreStockDamageService\ApiResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PreStockDamageService\IPreStockDamageSoapService.wsdl" />
+    <None Include="Web References\PreStockDamageService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PreStockReceiptService\ApiResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PreStockReceiptService\GetAllPreStockReceiptQueryRequestDto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PreStockReceiptService\IPreStockReceiptSoapService.wsdl" />
+    <None Include="Web References\PreStockReceiptService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PreStockReplenishmentService\ApiResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PreStockReplenishmentService\IPreStockReplenishmentSoapService.wsdl" />
+    <None Include="Web References\PreStockReplenishmentService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ProductService\IProductSoapService.wsdl" />
+    <None Include="Web References\ProductService\ProductDto.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\ProductService\Reference.map">
@@ -241,9 +381,6 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

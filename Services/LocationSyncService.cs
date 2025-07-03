@@ -1,75 +1,54 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using Estore.Ce.LocationService;
 using Estore.Ce.Models;
-using Estore.Ce.Repositories;
-using Estore.Ce.Profiles;
-using System.Windows.Forms;
 using Estore.Ce.Helpers;
+using Estore.Ce.Contracts;
+using Estore.Ce.Contracts.Services;
 
 namespace Estore.Ce.Services
 {
-    public interface ILocationSyncService
-    {        
-        event Action<int, int> RecordUpdatedLocationSyncService;
-
-        void SyncLocations();
-    }
-
-    public class LocationSyncService : ILocationSyncService
+    public class LocationSyncService : BaseSyncService,ILocationSyncService
     {
         private readonly ILocationRepository _repository;
 
-        public event Action<int, int> RecordUpdatedLocationSyncService;
-
+        // constructor
         public LocationSyncService(ILocationRepository repository)
         {
             _repository = repository;
-
-            // Subscribe to the RecordUpdated event
-            _repository.RecordUpdatedLocationRepository += UpdateProgressBar;
         }
+        // end: constructor
 
-        public void SyncLocations()
+        public override void Sync()
         {
-            ILocationService locationService = new ILocationService();
-            locationService.Timeout = 100000;
-
-            LocationProfile locationProfile = new LocationProfile();
-
-            _repository.DeleteAll();
-            DatabaseHelper.ResetIdentity("Location", "Id");            
-
-            List<LocationGetAllDto> locationsDto;
-            List<Location> locations = new List<Location>();
-
-            locationService.Timeout = 100000;
-            locationsDto = locationService.Locations(true).ToList();
-            
-            foreach (var locationDto in locationsDto)
-            {
-                Location location = locationProfile.Map(locationDto);
-                locations.Add(location);                
-            }
-
             try
             {
-                _repository.InsertAll(locations);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+                ILocationSoapService service = new ILocationSoapService();
+                service.Timeout = 100000;
 
-        private void UpdateProgressBar(int recordsFound, int recordsUpdated)
-        {
-            if (RecordUpdatedLocationSyncService != null)
+                _repository.DeleteAll();
+                DatabaseHelper.ResetIdentity("Location", "Id");
+
+                IEnumerable<LocationDto> dtoList;
+                List<Location> entities = new List<Location>();
+
+                service.Timeout = 100000;
+                dtoList = service.Locations(true).ToList();
+                if (dtoList.Count() > 0)
+                {
+                    foreach (var dto in dtoList)
+                    {
+                        Location entity = ObjectMapper.MapTo<LocationDto,Location>(dto);
+                        entities.Add(entity);
+                    }
+                    _repository.InsertAll(entities);
+                }
+            }
+            catch (Exception)
             {
-                RecordUpdatedLocationSyncService(recordsFound, recordsUpdated);
-            };
-        }
+                throw;
+            }
+        }        
     }
 }

@@ -10,5 +10,8 @@ namespace Estore.Ce.Models
     {
         public int LocationId { get; set; }
         public string LocationName { get; set; }
+        public bool IsBadOrder { get; set; }
+        public bool IsSellingArea { get; set; }
+        public bool IsWarehouse { get; set; }
     }
 }

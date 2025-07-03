@@ -23,76 +23,76 @@ namespace Estore.Ce.ProductService {
     /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IProductService_soap", Namespace="http://tempuri.org/")]
-    public partial class IProductService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IProductSoapService_soap", Namespace="http://tempuri.org/")]
+    public partial class IProductSoapService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         /// <remarks/>
-        public IProductService() {
-            this.Url = "http://192.168.1.112:8099/ProductService.asmx";
+        public IProductSoapService() {
+            this.Url = "http://192.168.254.171:8081/ProductService.asmx";
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductService/Products", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductSoapService/GetAll", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public ProductGetAllDto[] Products(bool isActive) {
-            object[] results = this.Invoke("Products", new object[] {
+        public ProductDto[] GetAll(bool isActive) {
+            object[] results = this.Invoke("GetAll", new object[] {
                         isActive});
-            return ((ProductGetAllDto[])(results[0]));
+            return ((ProductDto[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginProducts(bool isActive, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("Products", new object[] {
+        public System.IAsyncResult BeginGetAll(bool isActive, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetAll", new object[] {
                         isActive}, callback, asyncState);
         }
         
         /// <remarks/>
-        public ProductGetAllDto[] EndProducts(System.IAsyncResult asyncResult) {
+        public ProductDto[] EndGetAll(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((ProductGetAllDto[])(results[0]));
+            return ((ProductDto[])(results[0]));
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductService/ProductsPaged", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductSoapService/GetPaged", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public ProductGetAllDto[] ProductsPaged(bool isActive, int pageNumber, int pageSize) {
-            object[] results = this.Invoke("ProductsPaged", new object[] {
+        public ProductDto[] GetPaged(bool isActive, int pageNumber, int pageSize) {
+            object[] results = this.Invoke("GetPaged", new object[] {
                         isActive,
                         pageNumber,
                         pageSize});
-            return ((ProductGetAllDto[])(results[0]));
+            return ((ProductDto[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginProductsPaged(bool isActive, int pageNumber, int pageSize, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("ProductsPaged", new object[] {
+        public System.IAsyncResult BeginGetPaged(bool isActive, int pageNumber, int pageSize, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetPaged", new object[] {
                         isActive,
                         pageNumber,
                         pageSize}, callback, asyncState);
         }
         
         /// <remarks/>
-        public ProductGetAllDto[] EndProductsPaged(System.IAsyncResult asyncResult) {
+        public ProductDto[] EndGetPaged(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((ProductGetAllDto[])(results[0]));
+            return ((ProductDto[])(results[0]));
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductService/RecordCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int RecordCount(bool isActive) {
-            object[] results = this.Invoke("RecordCount", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IProductSoapService/GetRecordCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int GetRecordCount(bool isActive) {
+            object[] results = this.Invoke("GetRecordCount", new object[] {
                         isActive});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginRecordCount(bool isActive, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("RecordCount", new object[] {
+        public System.IAsyncResult BeginGetRecordCount(bool isActive, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetRecordCount", new object[] {
                         isActive}, callback, asyncState);
         }
         
         /// <remarks/>
-        public int EndRecordCount(System.IAsyncResult asyncResult) {
+        public int EndGetRecordCount(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((int)(results[0]));
         }
@@ -102,7 +102,7 @@ namespace Estore.Ce.ProductService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ProductGetAllDto {
+    public partial class ProductDto {
         
         private string barcodeField;
         
@@ -112,19 +112,19 @@ namespace Estore.Ce.ProductService {
         
         private bool isActiveField;
         
-        private System.Nullable<int> packingSizeField;
+        private int packingSizeField;
         
-        private System.Nullable<int> productParentIdField;
+        private string packingUnitField;
         
         private int productIdField;
+        
+        private System.Nullable<int> productParentIdField;
         
         private string productImageUrlField;
         
         private string productNameField;
         
         private System.Nullable<decimal> sellingPriceField;
-        
-        private string packingUnitField;
         
         /// <remarks/>
         public string Barcode {
@@ -167,13 +167,32 @@ namespace Estore.Ce.ProductService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> PackingSize {
+        public int PackingSize {
             get {
                 return this.packingSizeField;
             }
             set {
                 this.packingSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PackingUnit {
+            get {
+                return this.packingUnitField;
+            }
+            set {
+                this.packingUnitField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ProductId {
+            get {
+                return this.productIdField;
+            }
+            set {
+                this.productIdField = value;
             }
         }
         
@@ -185,16 +204,6 @@ namespace Estore.Ce.ProductService {
             }
             set {
                 this.productParentIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ProductId {
-            get {
-                return this.productIdField;
-            }
-            set {
-                this.productIdField = value;
             }
         }
         
@@ -226,16 +235,6 @@ namespace Estore.Ce.ProductService {
             }
             set {
                 this.sellingPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PackingUnit {
-            get {
-                return this.packingUnitField;
-            }
-            set {
-                this.packingUnitField = value;
             }
         }
     }
