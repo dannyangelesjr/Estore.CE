@@ -64,7 +64,7 @@ namespace Estore.Ce.Infrastructure.Repositories
                                 "PackingUnit=@PackingUnit, " +
                                 "ProductName=@ProductName, " +
                                 "Quantity=@Quantity, " +
-                                "ScanDate=@ScanDate, " +
+                                "ScanDate=@ScanDate " +
                                 "WHERE Id=@Id";
                     }
 

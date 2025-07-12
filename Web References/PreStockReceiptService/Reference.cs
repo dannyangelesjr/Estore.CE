@@ -30,7 +30,7 @@ namespace Estore.Ce.PreStockReceiptService {
         
         /// <remarks/>
         public IPreStockReceiptSoapService() {
-            this.Url = "http://192.168.254.171:8081/PreStockReceiptService.asmx";
+            this.Url = "http://192.168.1.112:8090/PreStockReceiptService.asmx";
         }
         
         /// <remarks/>
@@ -79,6 +79,8 @@ namespace Estore.Ce.PreStockReceiptService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class GetAllPreStockReceiptQueryRequestDto : BasePreTransactionGetDto {
         
+        private int idField;
+        
         private System.Nullable<int> purchaseOrderNumberField;
         
         private int quantityOnOrderField;
@@ -86,6 +88,16 @@ namespace Estore.Ce.PreStockReceiptService {
         private string supplierInvoiceNumberField;
         
         private string supplierNameField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -136,8 +148,6 @@ namespace Estore.Ce.PreStockReceiptService {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class BasePreTransactionGetDto {
         
-        private int idField;
-        
         private bool isForPostingField;
         
         private string barcodeField;
@@ -155,16 +165,6 @@ namespace Estore.Ce.PreStockReceiptService {
         private int quantityField;
         
         private System.Nullable<System.DateTime> scanDateField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
         
         /// <remarks/>
         public bool IsForPosting {
@@ -304,8 +304,6 @@ namespace Estore.Ce.PreStockReceiptService {
         
         private int productIdField;
         
-        private string productNameField;
-        
         private int quantityField;
         
         private System.Nullable<System.DateTime> scanDateField;
@@ -347,16 +345,6 @@ namespace Estore.Ce.PreStockReceiptService {
             }
             set {
                 this.productIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProductName {
-            get {
-                return this.productNameField;
-            }
-            set {
-                this.productNameField = value;
             }
         }
         

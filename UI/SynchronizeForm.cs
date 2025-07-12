@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Estore.Ce.Services;
+using Estore.Ce.Helpers;
 
 namespace Estore.Ce.UI
 {
@@ -49,13 +50,13 @@ namespace Estore.Ce.UI
                 Invoke((Action)(() =>
                 {
                     progressBar.Maximum = recordsFound;
-                    progressBar.Value = recordsUpdated;                    
+                    progressBar.Value = recordsUpdated;
                 }));
             }
             else
             {
                 progressBar.Maximum = recordsFound;
-                progressBar.Value = recordsUpdated;                
+                progressBar.Value = recordsUpdated;
             }
         }
 
@@ -66,6 +67,13 @@ namespace Estore.Ce.UI
                 try
                 {
                     Cursor.Current = Cursors.WaitCursor;
+
+                    if (!NetworkHelper.IsConnectedToServer())
+                    {
+                        MessageBox.Show("No connection. Submission aborted", "Abort", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+
                     synchronizeButton.Enabled = false;
                     panel1.Visible = false;
                     panel2.Visible = true;
@@ -76,8 +84,8 @@ namespace Estore.Ce.UI
                     _syncManager.SyncAll();
 
                     pictureBox.Image = Resource.success;
-                    
-                    MessageBox.Show("Sync completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None,MessageBoxDefaultButton.Button1);
+
+                    MessageBox.Show("Sync completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
                 }
                 catch (Exception ex)
                 {
@@ -89,6 +97,6 @@ namespace Estore.Ce.UI
                     synchronizeButton.Enabled = true;
                 }
             }
-        }        
+        }
     }
 }

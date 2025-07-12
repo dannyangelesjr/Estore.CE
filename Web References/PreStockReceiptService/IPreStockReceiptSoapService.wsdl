@@ -46,6 +46,7 @@
         <xsd:complexContent mixed="false">
           <xsd:extension base="tns:BasePreTransactionGetDto">
             <xsd:sequence>
+              <xsd:element minOccurs="1" maxOccurs="1" name="Id" type="xsd:int" />
               <xsd:element minOccurs="1" maxOccurs="1" name="PurchaseOrderNumber" nillable="true" type="xsd:int" />
               <xsd:element minOccurs="1" maxOccurs="1" name="QuantityOnOrder" type="xsd:int" />
               <xsd:element minOccurs="0" maxOccurs="1" name="SupplierInvoiceNumber" type="xsd:string" />
@@ -65,7 +66,6 @@
       </xsd:complexType>
       <xsd:complexType name="BasePreTransactionGetDto">
         <xsd:sequence>
-          <xsd:element minOccurs="1" maxOccurs="1" name="Id" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="IsForPosting" type="xsd:boolean" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Barcode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="DeviceId" type="xsd:string" />
@@ -83,7 +83,6 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Barcode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="DeviceId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ProductId" type="xsd:int" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="ProductName" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="Quantity" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ScanDate" nillable="true" type="xsd:dateTime" />
         </xsd:sequence>
@@ -135,7 +134,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockReceiptSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockReceiptSoapService_soap" binding="tns:BasicHttpBinding_IPreStockReceiptSoapService_soap">
-      <soap:address location="http://192.168.254.171:8081/PreStockReceiptService.asmx" />
+      <soap:address location="http://192.168.1.112:8090/PreStockReceiptService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

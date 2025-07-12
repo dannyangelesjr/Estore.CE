@@ -28,7 +28,7 @@ namespace Estore.Ce.LocationService {
         
         /// <remarks/>
         public ILocationSoapService() {
-            this.Url = "http://192.168.254.171:8081/LocationService.asmx";
+            this.Url = "http://192.168.1.112:8090/LocationService.asmx";
         }
         
         /// <remarks/>

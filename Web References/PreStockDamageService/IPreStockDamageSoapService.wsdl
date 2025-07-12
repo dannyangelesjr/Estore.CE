@@ -74,7 +74,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockDamageSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockDamageSoapService_soap" binding="tns:BasicHttpBinding_IPreStockDamageSoapService_soap">
-      <soap:address location="http://192.168.254.171:8081/PreStockDamageService.asmx" />
+      <soap:address location="http://192.168.1.112:8090/PreStockDamageService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -99,7 +99,7 @@
             this.btnScan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnScan.Location = new System.Drawing.Point(-3, 165);
             this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(297, 37);
+            this.btnScan.Size = new System.Drawing.Size(305, 37);
             this.btnScan.TabIndex = 86;
             this.btnScan.Text = "Manual Scan";
             this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
@@ -146,7 +146,7 @@
             this.txtProductName.Location = new System.Drawing.Point(3, 37);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(290, 52);
+            this.txtProductName.Size = new System.Drawing.Size(298, 52);
             this.txtProductName.TabIndex = 65;
             // 
             // label5
@@ -163,7 +163,7 @@
             this.txtBarcode.Location = new System.Drawing.Point(64, 8);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.ReadOnly = true;
-            this.txtBarcode.Size = new System.Drawing.Size(229, 23);
+            this.txtBarcode.Size = new System.Drawing.Size(237, 23);
             this.txtBarcode.TabIndex = 64;
             // 
             // tabPage2
@@ -206,8 +206,8 @@
             this.grdItems.HeaderForeColor = System.Drawing.Color.White;
             this.grdItems.Location = new System.Drawing.Point(5, 4);
             this.grdItems.Name = "grdItems";
-            this.grdItems.SelectionBackColor = System.Drawing.Color.White;
-            this.grdItems.SelectionForeColor = System.Drawing.Color.White;
+            this.grdItems.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            this.grdItems.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             this.grdItems.Size = new System.Drawing.Size(287, 129);
             this.grdItems.TabIndex = 12;
             this.grdItems.Click += new System.EventHandler(this.grdItems_Click);

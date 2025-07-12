@@ -116,10 +116,17 @@ namespace Estore.Ce.UI
                 return;
             }
 
-            if (!NetworkHelper.IsConnectedToServer())
+            try
             {
-                MessageBox.Show("No connection. Submission aborted", "Abort", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
-                return;
+                if (!NetworkHelper.IsConnectedToServer())
+                {
+                    MessageBox.Show("No connection. Submission aborted", "Abort", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
             SetupForm(false);
