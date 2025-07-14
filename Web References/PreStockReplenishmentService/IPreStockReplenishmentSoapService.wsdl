@@ -74,7 +74,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockReplenishmentSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockReplenishmentSoapService_soap" binding="tns:BasicHttpBinding_IPreStockReplenishmentSoapService_soap">
-      <soap:address location="http://192.168.1.112:8090/PreStockReplenishmentService.asmx" />
+      <soap:address location="http://192.168.31.93:8090/PreStockReplenishmentService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

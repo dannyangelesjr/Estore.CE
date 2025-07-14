@@ -22,3 +22,4 @@ C:\Projects\Supermarket\Estore.Ce\Estore.Ce\bin\Debug\Symbol.ResourceCoordinatio
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.exe
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.pdb
 C:\Projects\Supermarket\Estore.Ce\Estore.Ce\obj\Debug\Estore.Ce.UI.LocationForm.resources
+C:\Projects\Supermarket\Estore.Ce\Estore.Ce\bin\Debug\EStore.sdf

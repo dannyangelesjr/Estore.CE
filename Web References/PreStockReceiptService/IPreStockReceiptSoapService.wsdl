@@ -134,7 +134,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockReceiptSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockReceiptSoapService_soap" binding="tns:BasicHttpBinding_IPreStockReceiptSoapService_soap">
-      <soap:address location="http://192.168.1.112:8090/PreStockReceiptService.asmx" />
+      <soap:address location="http://192.168.31.93:8090/PreStockReceiptService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

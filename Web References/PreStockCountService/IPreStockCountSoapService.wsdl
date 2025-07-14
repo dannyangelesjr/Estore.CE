@@ -41,7 +41,6 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="IsForPosting" type="xsd:boolean" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Barcode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="DeviceId" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="LineNumber" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ProductId" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="Quantity" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ScanDate" nillable="true" type="xsd:dateTime" />
@@ -75,7 +74,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockCountSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockCountSoapService_soap" binding="tns:BasicHttpBinding_IPreStockCountSoapService_soap">
-      <soap:address location="http://192.168.1.112:8090/PreStockCountService.asmx" />
+      <soap:address location="http://192.168.31.93:8090/PreStockCountService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

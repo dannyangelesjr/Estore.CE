@@ -237,6 +237,7 @@
     </Content>
     <Content Include="EstoreCE_icon.ico" />
     <Content Include="EStore.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\downloading.png" />
     <Content Include="Resources\error.png" />
@@ -247,10 +248,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/LocationService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/LocationService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\LocationService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/LocationService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/LocationService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -260,10 +261,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/PreStockDamageService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/PreStockDamageService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockDamageService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/PreStockDamageService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/PreStockDamageService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -273,10 +274,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/PreStockReceiptService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/PreStockReceiptService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockReceiptService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/PreStockReceiptService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/PreStockReceiptService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -286,10 +287,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/PreStockReplenishmentService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/PreStockReplenishmentService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockReplenishmentService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/PreStockReplenishmentService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/PreStockReplenishmentService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -299,10 +300,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/ProductService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/ProductService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\ProductService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/ProductService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/ProductService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -312,10 +313,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.1.112:8090/PreStockCountService.asmx">
+    <WebReferenceUrl Include="http://192.168.31.93:8090/PreStockCountService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PreStockCountService\</RelPath>
-      <UpdateFromURL>http://192.168.1.112:8090/PreStockCountService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.31.93:8090/PreStockCountService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

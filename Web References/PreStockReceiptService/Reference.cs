@@ -30,7 +30,7 @@ namespace Estore.Ce.PreStockReceiptService {
         
         /// <remarks/>
         public IPreStockReceiptSoapService() {
-            this.Url = "http://192.168.1.112:8090/PreStockReceiptService.asmx";
+            this.Url = "http://192.168.31.93:8090/PreStockReceiptService.asmx";
         }
         
         /// <remarks/>

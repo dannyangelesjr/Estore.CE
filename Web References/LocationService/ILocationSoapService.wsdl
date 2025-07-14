@@ -59,7 +59,7 @@
   </wsdl:binding>
   <wsdl:service name="ILocationSoapService">
     <wsdl:port name="BasicHttpBinding_ILocationSoapService_soap" binding="tns:BasicHttpBinding_ILocationSoapService_soap">
-      <soap:address location="http://192.168.1.112:8090/LocationService.asmx" />
+      <soap:address location="http://192.168.31.93:8090/LocationService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

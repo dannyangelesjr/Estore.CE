@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System;
 
 namespace Estore.Ce.Helpers
 {
@@ -8,8 +9,9 @@ namespace Estore.Ce.Helpers
         {
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ConfigurationHelper.GetSoapEndpoint());
-                request.Timeout = 2000; // ms
+                string soapEndpoint = ConfigurationHelper.GetSoapEndpoint();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(soapEndpoint);
+                request.Timeout = 30000; // ms
                 request.Method = "GET";
 
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -17,9 +19,10 @@ namespace Estore.Ce.Helpers
                     return response.StatusCode == HttpStatusCode.OK;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                throw ex;
+                //return false;
             }
         }
     }

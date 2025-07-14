@@ -29,7 +29,7 @@ namespace Estore.Ce.PreStockReplenishmentService {
         
         /// <remarks/>
         public IPreStockReplenishmentSoapService() {
-            this.Url = "http://192.168.1.112:8090/PreStockReplenishmentService.asmx";
+            this.Url = "http://192.168.31.93:8090/PreStockReplenishmentService.asmx";
         }
         
         /// <remarks/>
