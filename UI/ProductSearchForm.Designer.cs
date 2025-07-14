@@ -148,7 +148,9 @@
             // 
             // btnScan
             // 
+            this.btnScan.BackColor = System.Drawing.Color.ForestGreen;
             this.btnScan.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.btnScan.ForeColor = System.Drawing.Color.White;
             this.btnScan.Location = new System.Drawing.Point(7, 221);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(304, 37);
@@ -256,6 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(318, 265);
             this.Controls.Add(this.btnScan);
             this.Controls.Add(label2);

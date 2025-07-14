@@ -132,7 +132,7 @@
   </wsdl:binding>
   <wsdl:service name="IProductSoapService">
     <wsdl:port name="BasicHttpBinding_IProductSoapService_soap" binding="tns:BasicHttpBinding_IProductSoapService_soap">
-      <soap:address location="http://192.168.254.171:8081/ProductService.asmx" />
+      <soap:address location="http://192.168.1.112:8090/ProductService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

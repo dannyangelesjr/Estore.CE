@@ -29,7 +29,7 @@ namespace Estore.Ce.PreStockCountService {
         
         /// <remarks/>
         public IPreStockCountSoapService() {
-            this.Url = "http://192.168.254.171:8081/PreStockCountService.asmx";
+            this.Url = "http://192.168.1.112:8090/PreStockCountService.asmx";
         }
         
         /// <remarks/>
@@ -85,9 +85,9 @@ namespace Estore.Ce.PreStockCountService {
         
         private string deviceIdField;
         
-        private int productIdField;
+        private int lineNumberField;
         
-        private string productNameField;
+        private int productIdField;
         
         private int quantityField;
         
@@ -124,22 +124,22 @@ namespace Estore.Ce.PreStockCountService {
         }
         
         /// <remarks/>
+        public int LineNumber {
+            get {
+                return this.lineNumberField;
+            }
+            set {
+                this.lineNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
         public int ProductId {
             get {
                 return this.productIdField;
             }
             set {
                 this.productIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProductName {
-            get {
-                return this.productNameField;
-            }
-            set {
-                this.productNameField = value;
             }
         }
         

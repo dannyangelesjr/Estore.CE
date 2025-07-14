@@ -12,6 +12,7 @@ namespace Estore.Ce.Contracts
     {
         IEnumerable<T> GetAll();
         T GetById(int id);
+        T GetByProductId(int productId);
 
         bool Insert(T entity);
         bool InsertAll(IEnumerable<T> entities);

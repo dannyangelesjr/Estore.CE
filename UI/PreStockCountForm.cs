@@ -269,7 +269,7 @@ namespace Estore.Ce.UI
             {
                 if (MessageBox.Show("Use per case", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    Product productParent = _productRepository.GetById((int)product.ProductParentId);
+                    Product productParent = _productRepository.GetByProductId((int)product.ProductParentId);
                     product = productParent != null ? productParent : product;
                 }
             }
@@ -297,7 +297,7 @@ namespace Estore.Ce.UI
             }
 
             Product product = GetProduct(barcode);
-            if (product == null)
+            if (product==null || product.Barcode == null)
             {
                 return null;
             }
@@ -456,6 +456,6 @@ namespace Estore.Ce.UI
             txtProductName2.Enabled = false;
             txtQuantity.Enabled = txtBarcode.Text != "" && isEnabled;
         }
-        #endregion        
+        #endregion
     }
 }

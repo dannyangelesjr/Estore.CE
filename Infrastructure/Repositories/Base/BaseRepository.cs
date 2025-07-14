@@ -85,6 +85,36 @@ namespace Estore.Ce.Infrastructure.Repositories.Base
             }
         }
 
+        public T GetByProductId(int productId)
+        {
+            try
+            {
+                T entity = new T();
+                using (var connection = new SqlCeConnection(_connectionString))
+                {
+                    connection.Open();
+                    string selectQuery = "SELECT * FROM " + TableName + " WHERE ProductId = " + productId;
+                    using (SqlCeCommand command = new SqlCeCommand(selectQuery, connection))
+                    {
+                        using (SqlCeDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                entity = ObjectMapper.MapReaderToEntity<T>(reader);
+                                //entity = MapToEntity(reader, entity);
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+                return entity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public abstract bool Insert(T entity);
 
         public abstract bool InsertAll(IEnumerable<T> entities);

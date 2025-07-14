@@ -77,6 +77,7 @@
             // 
             // synchronizeButton
             // 
+            this.synchronizeButton.BackColor = System.Drawing.Color.YellowGreen;
             this.synchronizeButton.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.synchronizeButton.Location = new System.Drawing.Point(12, 106);
             this.synchronizeButton.Name = "synchronizeButton";

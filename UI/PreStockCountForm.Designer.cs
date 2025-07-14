@@ -203,10 +203,14 @@
             // 
             // grdItems
             // 
-            this.grdItems.BackColor = System.Drawing.SystemColors.Info;
-            this.grdItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.grdItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(225)))));
+            this.grdItems.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.grdItems.HeaderBackColor = System.Drawing.Color.ForestGreen;
+            this.grdItems.HeaderForeColor = System.Drawing.Color.White;
             this.grdItems.Location = new System.Drawing.Point(5, 4);
             this.grdItems.Name = "grdItems";
+            this.grdItems.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            this.grdItems.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             this.grdItems.Size = new System.Drawing.Size(287, 129);
             this.grdItems.TabIndex = 12;
             this.grdItems.Click += new System.EventHandler(this.grdItems_Click);

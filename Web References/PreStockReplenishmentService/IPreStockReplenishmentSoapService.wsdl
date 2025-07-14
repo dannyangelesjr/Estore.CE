@@ -42,7 +42,6 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="Barcode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="DeviceId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ProductId" type="xsd:int" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="ProductName" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="Quantity" type="xsd:int" />
           <xsd:element minOccurs="1" maxOccurs="1" name="ScanDate" nillable="true" type="xsd:dateTime" />
         </xsd:sequence>
@@ -75,7 +74,7 @@
   </wsdl:binding>
   <wsdl:service name="IPreStockReplenishmentSoapService">
     <wsdl:port name="BasicHttpBinding_IPreStockReplenishmentSoapService_soap" binding="tns:BasicHttpBinding_IPreStockReplenishmentSoapService_soap">
-      <soap:address location="http://192.168.254.171:8081/PreStockReplenishmentService.asmx" />
+      <soap:address location="http://192.168.1.112:8090/PreStockReplenishmentService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

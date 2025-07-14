@@ -29,7 +29,7 @@ namespace Estore.Ce.PreStockReplenishmentService {
         
         /// <remarks/>
         public IPreStockReplenishmentSoapService() {
-            this.Url = "http://192.168.254.171:8081/PreStockReplenishmentService.asmx";
+            this.Url = "http://192.168.1.112:8090/PreStockReplenishmentService.asmx";
         }
         
         /// <remarks/>
@@ -87,8 +87,6 @@ namespace Estore.Ce.PreStockReplenishmentService {
         
         private int productIdField;
         
-        private string productNameField;
-        
         private int quantityField;
         
         private System.Nullable<System.DateTime> scanDateField;
@@ -130,16 +128,6 @@ namespace Estore.Ce.PreStockReplenishmentService {
             }
             set {
                 this.productIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProductName {
-            get {
-                return this.productNameField;
-            }
-            set {
-                this.productNameField = value;
             }
         }
         

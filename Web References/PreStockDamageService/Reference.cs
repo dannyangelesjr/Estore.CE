@@ -29,7 +29,7 @@ namespace Estore.Ce.PreStockDamageService {
         
         /// <remarks/>
         public IPreStockDamageSoapService() {
-            this.Url = "http://192.168.254.171:8081/PreStockDamageService.asmx";
+            this.Url = "http://192.168.1.112:8090/PreStockDamageService.asmx";
         }
         
         /// <remarks/>
